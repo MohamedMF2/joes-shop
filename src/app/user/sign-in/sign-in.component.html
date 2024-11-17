@@ -1,0 +1,57 @@
+<div class="container">
+  <form #signInForm="ngForm" class="form" (ngSubmit)="signIn()">
+    <img class="logo" src="/assets/images/logo.png" />
+    <div class="sign-in">Sign In</div>
+    <div class="sub-text">to acquire awesome bots</div>
+    <input #email="ngModel" required email name="email" [(ngModel)]="credietials.email" placeholder="Email Address" type="text" />
+    <em class="error" *ngIf="email.errors?.['email'] && email.touched">Email requires a correct format </em>
+    <em class="error" *ngIf="email.errors?.['required'] && email.touched">Email is required</em>
+
+    <input #password="ngModel" required name="password" [(ngModel)]="credietials.password" placeholder="Password"
+      type="password" />
+    <em class="error" *ngIf="password.invalid && password.touched">Password is required</em>
+    <div class="buttons">
+      <button type="submit" class="button cta" [disabled]="signInForm.form.invalid">
+        Sign In
+      </button>
+    </div>
+    <div class="signInError" *ngIf="signInError">
+      <h4>Sign in failed , please try again</h4>
+    </div>
+  </form>
+  <!-- <div>
+    <b>Form info</b><br>
+    <br>
+    <label>signInForm.vaild: </label>{{signInForm.valid}} <br>
+    <label> signInForm.invalid: </label> {{signInForm.invalid}} <br>
+    <br>
+
+    <br>
+    <label>signInForm.dirty: </label> {{signInForm.dirty}} <br>
+    <label> signInForm.pristine: </label> {{signInForm.pristine}} <br>
+    <br>
+
+    <br>
+    <label>signInForm.touched: </label> {{signInForm.touched}} <br>
+    <label> signInForm.untouched: </label>{{signInForm.untouched}} <br>
+    <br>
+  </div> -->
+
+  <!-- <div>
+    <b>Control info</b><br>
+    <br>
+    <label>email.vaild: </label>{{email.valid}} <br>
+    <label> email.invalid: </label> {{email.invalid}} <br>
+    <br>
+
+    <br>
+    <label>email.dirty: </label> {{email.dirty}} <br>
+    <label> email.pristine: </label> {{email.pristine}} <br>
+    <br>
+
+    <br>
+    <label>email.touched: </label> {{email.touched}} <br>
+    <label> email.untouched: </label>{{email.untouched}} <br>
+    <br>
+  </div> -->
+</div>
